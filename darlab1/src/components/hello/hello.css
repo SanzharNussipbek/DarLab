@@ -1,0 +1,14 @@
+.Hello-login-output {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.login-output-img-link {
+    padding: 1rem;
+}
+
+.login-output-msg {
+    text-align: center;
+}

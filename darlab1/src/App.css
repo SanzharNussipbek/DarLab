@@ -1,0 +1,52 @@
+.btn {
+  display: flex;
+  margin: auto;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border: 2px solid #e91e63;
+  border-radius: 5%;
+  background-color: white;
+  color: #e91e63;
+  cursor: pointer;
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+}
+
+.btn:hover {
+  background-color: #e91e63;
+  color: white;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-wrapper {
+  padding: 1rem 1.5rem;
+}
+
+.App-login-btn {
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+}
+
+.inputField {
+  display: block;
+  margin: auto;
+  outline: none;
+  padding: .2rem .2rem;
+  width: 15rem;
+  height: 2rem;
+  border: 1px solid  #e91e63;
+  font-size: 1.2rem;
+}
+
+.input-btn {
+  margin-top: .7rem;
+  padding: .5rem .5rem;
+}
