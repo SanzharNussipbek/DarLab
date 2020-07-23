@@ -4,10 +4,31 @@ import { Hello } from "./components/hello/hello"
 
 function App() {
   const [clicked, setClicked] = useState<Boolean>();
-  const [name, setName] = useState<String>();
   const [nameChange, setNameChange] = useState<Boolean>();
   const [log, setLog] = useState<String>("Log in");
   const [username, setUserName] = useState<String>("Sanzhar");
+
+  const initialFormData = Object.freeze({
+    username: "",
+    picture: "",
+    link: ""
+  });
+
+  const [formData, updateFormData] = React.useState(initialFormData);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    updateFormData({
+      ...formData,
+
+      [e.target.name]: e.target.value.trim()
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault()
+    console.log(formData);
+    setUserName(formData.username)
+  };
 
   const btnClickLoginHandler = (val: boolean) => { 
     console.log("Log in clicked") 
@@ -17,22 +38,14 @@ function App() {
 
   const btnClickNameHandler = () => { 
     console.log("Change name clicked") 
-    setName(username);
+    setUserName(username);
     setNameChange(true);
   }
 
-  // Not working
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault()
-    console.log("Value: " + e.target.value)
-    setUserName(e.target.value)
-    setNameChange(false)
-  }
-
   // Code block for input form
-  const inputHandler = <form action="submit" className="inputForm">
-                        <input type="text" className="inputField" onSubmit = { handleChange }>
-                        </input><button className="btn input-btn">Change</button>
+  const inputHandler = <form action="submit" className="inputForm" onSubmit = { handleSubmit }>
+                        <input type="text" name="username" className="inputField" placeholder="Username" onChange = {handleChange}></input>
+                        <button className="btn input-btn">Change</button>
                       </form>
 
   return (
@@ -40,11 +53,11 @@ function App() {
       
       <div className="App-wrapper">
       
-        { clicked && username ? <Hello name={ username } picture = { "https://via.placeholder.com/200x200.png" } link = {"#"}/> : null }
+        { clicked && username ? <Hello name={ username } picture={ "https://via.placeholder.com/200x200.png" } link={"#"}/> : null }
         
-        <button className="btn App-login-btn" onClick = {() => btnClickLoginHandler(!clicked)}>{ username ? log : "Log in" }</button>
+        <button className="btn App-login-btn" onClick = { () => btnClickLoginHandler(!clicked)}> { log }</button>
         
-        { nameChange ? inputHandler : <button className="btn App-login-btn" onClick = { btnClickNameHandler }>Change name</button>}
+        { nameChange && !clicked? inputHandler : clicked ? null : <button className="btn App-login-btn" onClick = { btnClickNameHandler }>Change name</button> }
       
       </div>
     
