@@ -1,0 +1,19 @@
+.btn {
+    display: flex;
+    margin: auto;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: 2px solid #e91e63;
+    border-radius: 5%;
+    background-color: white;
+    color: #e91e63;
+    cursor: pointer;
+    transition-property: background-color, color;
+    transition-duration: 300ms;
+
+    &:hover {
+        background-color: #e91e63;
+        color: white;
+      }
+  }
