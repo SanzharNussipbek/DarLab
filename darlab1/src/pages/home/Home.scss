@@ -1,0 +1,12 @@
+.Home {
+
+    .login-btn {
+        margin-bottom: 2rem;
+        padding: 1rem 1.5rem;
+
+        &:hover {
+            background-color: #e91e63;
+            color: white;
+        }
+    }
+}

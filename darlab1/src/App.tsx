@@ -1,67 +1,50 @@
-import React, { useState } from 'react';
-import './App.css';
-import { Hello } from "./components/hello/hello"
+import React from 'react';
+import { BrowserRouter as Router, Link, Switch, Route} from "react-router-dom"
+import './App.scss';
+import { Home } from "./pages/home/Home"
+import { Posts } from "./pages/posts/Posts"
+import { PostDetail } from './pages/postDetail/PostDetail'
+import { Login } from "./pages/login/Login"
+
+// ToDo:
+// - New route with /posts/:id and PostDetails for each post using Router
+// - ReactTransitionGroup for animation of buttons
+// - Fix the style
+// - Component for avatar
+
 
 function App() {
-  const [clicked, setClicked] = useState<Boolean>();
-  const [nameChange, setNameChange] = useState<Boolean>();
-  const [log, setLog] = useState<String>("Log in");
-  const [username, setUserName] = useState<String>("Sanzhar");
-
-  const initialFormData = Object.freeze({
-    username: "",
-    picture: "",
-    link: ""
-  });
-
-  const [formData, updateFormData] = React.useState(initialFormData);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    updateFormData({
-      ...formData,
-
-      [e.target.name]: e.target.value.trim()
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
-    e.preventDefault()
-    console.log(formData);
-    setUserName(formData.username)
-  };
-
-  const btnClickLoginHandler = (val: boolean) => { 
-    console.log("Log in clicked") 
-    setClicked(val);
-    setLog(log === "Log in" ? "Log out" : "Log in")
-  }
-
-  const btnClickNameHandler = () => { 
-    console.log("Change name clicked") 
-    setUserName(username);
-    setNameChange(true);
-  }
-
-  // Code block for input form
-  const inputHandler = <form action="submit" className="inputForm" onSubmit = { handleSubmit }>
-                        <input type="text" name="username" className="inputField" placeholder="Username" onChange = {handleChange}></input>
-                        <button className="btn input-btn">Change</button>
-                      </form>
 
   return (
-    <div className="App">
-      
-      <div className="App-wrapper">
-      
-        { clicked && username ? <Hello name={ username } picture={ "https://via.placeholder.com/200x200.png" } link={"#"}/> : null }
-        
-        <button className="btn App-login-btn" onClick = { () => btnClickLoginHandler(!clicked)}> { log }</button>
-        
-        { nameChange && !clicked? inputHandler : clicked ? null : <button className="btn App-login-btn" onClick = { btnClickNameHandler }>Change name</button> }
-      
+    <Router>
+      <div className="App">
+        <nav className="App-navigation">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/posts">Posts</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div className="App-content">
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/posts" component={Posts}/>
+            <Route exact path="/posts/:id" component={PostDetail}/>
+            <Route exact path="/login" component={Login}/>
+            <Route path="*">
+              <h2>Not Found</h2>
+            </Route>
+          </Switch>
+        </div>
       </div>
-    
-    </div>
+    </Router>
   );
 }
 

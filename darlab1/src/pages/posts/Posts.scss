@@ -1,0 +1,29 @@
+.Posts {
+    width: 80%;
+
+    .posts-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+
+        .posts-item {
+            border: 1px solid #e91e63;
+            margin: 1rem;
+            padding: 0.5rem;
+            box-shadow: 5px 10px #a75872;
+
+            a {
+                text-decoration: none;
+                color: black;
+                transition-property: border-bottom;
+                transition-duration: 300ms;
+
+                &:hover {
+                    border-bottom: 1px solid #e91e63;
+                    color: #e91e63;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
