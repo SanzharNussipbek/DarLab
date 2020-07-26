@@ -1,0 +1,43 @@
+.Post {
+    width: 50%;
+    height: 800px;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    .post-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .post-body {
+        font-size: 2rem;
+        margin: 1rem;
+        padding: 1rem 1.5rem;
+    }
+
+    a {
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #e91e63;
+        border: 2px solid #e91e63;
+        border-radius: 5%;
+        padding: .7rem 1rem;
+        margin: auto;
+        display: flex;
+        width: 6rem;
+        height: 2rem;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        transition: background-color, color;
+        transition-duration: 300ms;
+
+        &:hover {
+            color: white;
+            background-color: #e91e63;;
+        }
+    }
+}

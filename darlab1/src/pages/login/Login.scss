@@ -1,0 +1,55 @@
+.Login {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    margin: .5rem;
+    justify-content: center;
+    align-items: center;
+
+    .login-title {
+        text-align: center;
+        font-size: 2rem;
+        margin: 1rem;
+    }
+
+    .login-input {
+        margin: inherit;
+        border: 1px solid #e91e63;
+        border-radius: 4%;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        outline: none;
+        transition: border;
+        transition-duration: 200ms;
+
+        &:hover {
+            border: 2px solid #e91e63;
+        }
+    }
+
+    .btn {
+        display: flex;
+        margin: auto;
+        outline: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border: 2px solid #e91e63;
+        border-radius: 5%;
+        background-color: white;
+        color: #e91e63;
+        cursor: pointer;
+        transition-property: background-color, color;
+        transition-duration: 300ms;
+    
+        &:hover {
+            background-color: #e91e63;
+            color: white;
+          }
+      }
+
+    .submit-btn {
+        margin: 1rem;
+        padding: .5rem;
+    }
+}

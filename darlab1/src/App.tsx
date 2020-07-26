@@ -3,12 +3,16 @@ import { BrowserRouter as Router, Link, Switch, Route} from "react-router-dom"
 import './App.scss';
 import { Home } from "./pages/home/Home"
 import { Posts } from "./pages/posts/Posts"
+import { PostDetail } from './pages/postDetail/PostDetail'
+import { Login } from "./pages/login/Login"
 
 // ToDo:
 // - New route with /posts/:id and PostDetails for each post using Router
 // - ReactTransitionGroup for animation of buttons
 // - Fix the style
 // - Component for avatar
+
+
 function App() {
 
   return (
@@ -30,14 +34,10 @@ function App() {
 
         <div className="App-content">
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-
-            <Route exact path="/posts">
-              <Posts />
-            </Route>
-
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/posts" component={Posts}/>
+            <Route exact path="/posts/:id" component={PostDetail}/>
+            <Route exact path="/login" component={Login}/>
             <Route path="*">
               <h2>Not Found</h2>
             </Route>
