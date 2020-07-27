@@ -5,13 +5,7 @@ import { Home } from "./pages/home/Home"
 import { Posts } from "./pages/posts/Posts"
 import { PostDetail } from './pages/postDetail/PostDetail'
 import { Login } from "./pages/login/Login"
-
-// ToDo:
-// - New route with /posts/:id and PostDetails for each post using Router
-// - ReactTransitionGroup for animation of buttons
-// - Fix the style
-// - Component for avatar
-
+import { Chat } from "./pages/chat/Chat"
 
 function App() {
 
@@ -27,6 +21,9 @@ function App() {
               <Link to="/posts">Posts</Link>
             </li>
             <li>
+              <Link to="/chat">Chat</Link>
+            </li>
+            <li>
               <Link to="/login">Login</Link>
             </li>
           </ul>
@@ -38,6 +35,7 @@ function App() {
             <Route exact path="/posts" component={Posts}/>
             <Route exact path="/posts/:id" component={PostDetail}/>
             <Route exact path="/login" component={Login}/>
+            <Route exact path="/chat" component={Chat}/>
             <Route path="*">
               <h2>Not Found</h2>
             </Route>

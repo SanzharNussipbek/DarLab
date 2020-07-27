@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Link, Switch, Route} from "react-router-dom"
+import { BrowserRouter as Router, Link} from "react-router-dom"
 import './Posts.scss';
 import { Post } from "../../types/Intefaces"
 import { getPosts } from '../../services/api';
