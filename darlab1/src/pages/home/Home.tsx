@@ -36,12 +36,6 @@ export const Home: React.FunctionComponent = () => {
 
     return (
         <div className="Home">
-            {/* <h1>Homework</h1>
-            <ul>
-                <li>Chat form with button</li>
-                <li>Chat messages component</li>
-                <li>Container for chat messages: fix height, scroll bar, etc</li>
-            </ul> */}
             <form onSubmit={submitHandler}>
                 <div className="form-group">
                     <Input  name={"firstname"}
@@ -50,7 +44,7 @@ export const Home: React.FunctionComponent = () => {
                             onChange={(value) => changeHandler('firstname', value)}/>
                 </div>
                 <div className="form-group">
-                <Input  name={"lastname"}
+                    <Input  name={"lastname"}
                             placeholder={"Enter your last name"}
                             required={true}
                             onChange={(value) => changeHandler('lastname', value)}/>

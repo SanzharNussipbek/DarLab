@@ -7,22 +7,26 @@
         grid-template-rows: auto;
 
         .posts-item {
-            border: 1px solid #e91e63;
+            border: 1px solid #45A29E;
             margin: 1rem;
             padding: 0.5rem;
-            box-shadow: 5px 10px #a75872;
+            box-shadow: 5px 10px #27524f;
 
             a {
                 text-decoration: none;
-                color: black;
+                color: white;
                 transition-property: border-bottom;
                 transition-duration: 300ms;
 
                 &:hover {
-                    border-bottom: 1px solid #e91e63;
-                    color: #e91e63;
+                    border-bottom: 1px solid #45A29E;
+                    color: #45A29E;
                     font-size: 1.2rem;
                 }
+            }
+
+            .posts-item-text {
+                color: white;
             }
         }
     }

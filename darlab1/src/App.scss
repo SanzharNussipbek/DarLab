@@ -3,31 +3,63 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0;
+  margin: 0;
+  background-color: white;
 
   .App-navigation {
     display: flex;
+    justify-content: space-between;
     width: 100%;
-    justify-content: flex-end;
-    
-    ul {
-      padding: 1rem;
-      list-style: none;
-      display: flex;
+    position: fixed;
+    background-color: #1F2833;
 
-      li {
-        margin-right: 40px;
+    .logo-wrapper {
+      margin: 20px;
+      position: relative;
 
-        a{
-          text-decoration: none;
-          color: #e91e63;
-          font-size: 1.2rem;
-          font-weight: 700;
-          padding: 0.5rem 0;
-          transition-property: border-bottom;
-          transition-duration: 300ms;
+      a {
+        outline: none;
+        text-decoration: none;
+        
+        img {
+          position: absolute;
+          width: 150px;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
+    }
 
-          &:hover {
-            border-bottom: 2px solid #e91e63;
+    .links-wrapper {
+      justify-content: flex-end;
+
+      ul {
+        padding: 1rem;
+        list-style: none;
+        display: flex;
+  
+        li {
+          margin-right: 50px;
+  
+          a{
+            text-decoration: none;
+            color: #66FCF1;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.5rem 0;
+            transition-property: border-bottom;
+            transition-duration: 250ms;
+  
+            &:hover {
+              border-bottom: 2px solid #45A29E;
+            }
+          }
+          .active {
+            border-bottom: 2px solid #45A29E;
           }
         }
       }
@@ -37,8 +69,13 @@
   .App-content {
     flex: 1;
     display: flex;
+    width: 100%;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    .not-found {
+      color: #45A29E;
+    }
   }
 }
