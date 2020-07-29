@@ -14,22 +14,29 @@ export const Chat: React.FunctionComponent<Props> = () => {
     }
 
     const sendMessageHandler = (e: React.FormEvent) => {
+        e.preventDefault()
         console.log(e)
     }
 
     return (
         <div className="Chat">
-            <div className="chat-wrapper">
-                <div className="chat-message-container">
+            <div className="room-list-container">
+                <h1>Rooms</h1>
+            </div>
+            
+            <div className="message-list-container">
+                <h1>Messages</h1>
+            </div>
 
-                </div>
-               
-                <div className="chat-form-container">
-                    <form onSubmit={sendMessageHandler}>  
-                        <Input name="message" required={true} placeholder="Enter message" className="chat-input" onChange={(value)=> messageHandler(value)}/>
-                        <Button text="Send" className="chat-send-btn"/>
-                    </form>
-                </div>
+            <div className="new-room-form-container">
+                <h3>Create Room</h3>
+            </div>
+
+            <div className="send-message-form-container">
+                <form onSubmit={sendMessageHandler} className="send-message-form">  
+                    <input name="message" required={true} placeholder="Enter message" className="message-input" onChange={(e)=> messageHandler(e.target.value)}/>
+                    <button className="message-send-btn">Send</button>
+                </form>
             </div>
         </div>
     );

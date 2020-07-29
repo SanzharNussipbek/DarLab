@@ -1,5 +1,7 @@
 .Posts {
     width: 80%;
+    position: absolute;
+    top: 100px;
 
     .posts-list {
         display: grid;
@@ -14,7 +16,7 @@
 
             a {
                 text-decoration: none;
-                color: white;
+                color: black;
                 transition-property: border-bottom;
                 transition-duration: 300ms;
 
@@ -26,7 +28,7 @@
             }
 
             .posts-item-text {
-                color: white;
+                color: black;
             }
         }
     }

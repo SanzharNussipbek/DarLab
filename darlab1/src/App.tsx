@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <nav className="App-navigation">
+        <div className="App-navigation">
           <div className="logo-wrapper">
             <Link to="/"><img src="/dar_logo.png"/></Link>
           </div>
@@ -33,7 +33,7 @@ function App() {
               </li>
             </ul>
           </div>
-        </nav>
+        </div>
 
         <div className="App-content">
           <Switch>
