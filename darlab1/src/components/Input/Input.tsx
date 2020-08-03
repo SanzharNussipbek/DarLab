@@ -7,10 +7,11 @@ type Props = {
     required?: boolean,
     className?: string,
     value?: string,
+    onKeyDown?: () => void,
     onChange?: (val: string) => void;
 }
 
-export const Input: React.FunctionComponent<Props> = ({ name, placeholder, required, value, className, onChange}) => {
+export const Input: React.FunctionComponent<Props> = ({ name, placeholder, required, value, className, onKeyDown, onChange}) => {
 
     const [inputValue, setInputValue] = useState<string>('')
     const [inputChanged, setInputChanged] = useState<boolean>(false)
@@ -56,6 +57,7 @@ export const Input: React.FunctionComponent<Props> = ({ name, placeholder, requi
                     className={"input-field " + className}
                     placeholder={placeholder} 
                     value={value}
+                    onKeyDown={onKeyDown}
                     onChange={(e) => changeHandler(e.target.value)}></input>
             
             <div className="form-error">

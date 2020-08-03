@@ -15,17 +15,17 @@ export const ChatMessages: React.FunctionComponent<Props> = ({messages}) => {
 
                     return (
                         <div className="message-item" key={index}>
-                            <div className="message-item-header">
-                                <div className="message-item-user">
-                                    { message.userId.split('-')[0] }
+                            <div className="message-item-user">
+                                { message.userId.split('-')[0] }
+                            </div>
+                            
+                            <div className="message-item-body">
+                                <div className="message-item-text">
+                                    { message.text }
                                 </div>
                                 <div className="message-item-time">
                                     { `${date.getHours()}:${date.getMinutes()}` }
                                 </div>
-                            </div>
-                            
-                            <div className="message-item-text">
-                                { message.text }
                             </div>
                         </div>
                     )

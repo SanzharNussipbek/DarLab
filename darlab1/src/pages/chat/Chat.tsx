@@ -43,6 +43,7 @@ export const Chat: React.FunctionComponent<Props> = ({user}) => {
     }
 
     useEffect(() => {
+        socketClient.open();
         socketClient.eventEmitter.on('message', onMessage);
 
         return () => {
@@ -62,6 +63,14 @@ export const Chat: React.FunctionComponent<Props> = ({user}) => {
         setShowEmojiPicker(false);
     }
 
+    // const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    //     if (event.key === 'Enter') {
+    //       event.preventDefault();
+    //       event.stopPropagation();
+    //       messageSubmit();
+    //     }
+    //   }
+
     return (
         <div className="Chat">
             <div className="message-list-container">
@@ -72,7 +81,7 @@ export const Chat: React.FunctionComponent<Props> = ({user}) => {
             <div className="send-message-form-container">
                 <form onSubmit={messageSubmit} className="send-message-form">
                     <div className="form-input">
-                        <Input name="message" value={message} required={false} placeholder="Enter message" className="message-input" onChange={(value)=> messageHandler(value)}/>
+                        <Input name="message" value={message} required={true} placeholder="Enter message" className="message-input" onChange={(value)=> messageHandler(value)}/>
                         <button type="button" className="toggle-emoji" onClick={toggleEmojiPicker}>
                             <Smile />
                         </button>  

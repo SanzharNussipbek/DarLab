@@ -1,5 +1,6 @@
 import axios from "axios"
-import { Post } from "../types/Interfaces"
+import { Post, Video } from "../types/Interfaces"
+import { videosMock } from "./mock"
 
 export const getPosts = () => {
     return axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
@@ -9,4 +10,10 @@ export const getPosts = () => {
 export const getPost = (id: number) => {
     return axios.get<Post>(`https://jsonplaceholder.typicode.com/posts/${id}`)
         .then(response => response.data)
+}
+
+export const getVideos = () => {
+    return new Promise<Video[]>((resolve, reject) => {
+        resolve(videosMock);
+    })
 }

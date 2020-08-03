@@ -23,3 +23,8 @@ export interface SocketClientConfig {
     userId: string;
     reconnect?: boolean,
 }
+
+export interface Video {
+    id: string;
+    title: string;
+}

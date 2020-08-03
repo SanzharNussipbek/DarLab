@@ -1,11 +1,50 @@
 .Room {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    .chat-container {
-        width: 80%;
-        max-width: 400px;
+    .room-body {
+        display: flex;
+
+        .video-wrapper {
+            display: flex;
+            flex-direction: column;
+
+            .video-controls {
+                margin-top: 1rem;
+                display: flex;
+            }
+
+            .youtube-link-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 3rem auto;
+
+                a {
+                    padding: 1rem 2rem;
+                    border: 2px solid #45A29E;
+                    border-radius: 5%;
+                    text-decoration: none;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: #45A29E;
+                    background-color: white;
+                    transition-property: background-color, color;
+                    transition-duration: 300ms;
+
+                    &:hover {
+                        background-color: #45A29E;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .chat-wrapper {
+            margin-left: 10px;
+        }
     }
 }
