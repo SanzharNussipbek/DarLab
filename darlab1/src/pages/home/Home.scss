@@ -1,32 +1,36 @@
 .Home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .login-btn {
-        margin-bottom: 2rem;
-        padding: .5rem 2rem;
+    .login-form {
 
-        &:hover {
-            background-color: #45A29E;
-            color: white;
+        .form-group{
+            margin-bottom: 1rem;
+
+            .form-control {
+                margin: inherit;
+                border: 1px solid #e91e63;
+                border-radius: 4%;
+                padding: 0.5rem;
+                font-size: 1.2rem;
+                outline: none;
+                transition: border;
+                transition-duration: 200ms;
+        
+                &:hover {
+                    border: 2px solid #e91e63;
+                }
+            }
         }
-    }
 
-    .form-group{
-        margin-bottom: 1rem;
-        display: flex;
-        flex-direction: column;
+        .login-btn {
+            margin-bottom: 2rem;
+            padding: .5rem 2rem;
 
-        .form-control {
-            margin: inherit;
-            border: 1px solid #e91e63;
-            border-radius: 4%;
-            padding: 0.5rem;
-            font-size: 1.2rem;
-            outline: none;
-            transition: border;
-            transition-duration: 200ms;
-    
             &:hover {
-                border: 2px solid #e91e63;
+                background-color: #45A29E;
+                color: white;
             }
         }
     }

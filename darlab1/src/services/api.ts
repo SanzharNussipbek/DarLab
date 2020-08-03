@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Post } from "../types/Intefaces"
+import { Post } from "../types/Interfaces"
 
 export const getPosts = () => {
     return axios.get<Post[]>('https://jsonplaceholder.typicode.com/posts')

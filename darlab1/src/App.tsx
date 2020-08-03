@@ -1,11 +1,11 @@
-import React, { AnchorHTMLAttributes } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Link, Switch, Route} from "react-router-dom"
 import './App.scss';
 import { Home } from "./pages/home/Home"
 import { Posts } from "./pages/posts/Posts"
 import { PostDetail } from './pages/postDetail/PostDetail'
 import { Login } from "./pages/login/Login"
-import { Chat } from "./pages/chat/Chat"
+import { Room } from "./pages/room/Room"
 
 function App() {
 
@@ -28,25 +28,25 @@ function App() {
               <li>
                 <Link to="/chat">Chat</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/login">Login</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
 
-        <div className="App-content">
+        <main className="App-content">
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route exact path="/posts" component={Posts}/>
             <Route exact path="/posts/:id" component={PostDetail}/>
             <Route exact path="/login" component={Login}/>
-            <Route exact path="/chat" component={Chat}/>
+            <Route exact path="/chat" component={Room}/>
             <Route path="*">
               <h1 className="not-found">Error #404: Page Not Found</h1>
             </Route>
           </Switch>
-        </div>
+        </main>
       </div>
     </Router>
   );

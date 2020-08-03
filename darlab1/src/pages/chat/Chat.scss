@@ -1,90 +1,65 @@
 .Chat {
     width: 100%;
-    height: 100vh;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 60px;
-    grid-template-areas: 
-            "r m m m m m"
-            "r m m m m m"
-            "r m m m m m"
-            "r m m m m m"
-            "r m m m m m"
-            "f s s s s s";
-
-    text-align: center;
-    // vertical-align: middle;
-
-    .room-list-container {
-        grid-area: r;
-        background-color: #45A29E;
-        h1 {
-            position: relative;
-            top: 50%;
-        }
-    }
 
     .message-list-container {
-        grid-area: m;
         background-color: #ffffff;
+        border: 1px solid black;
+        height: 600px;
+        text-align: center;
         h1 {
             position: relative;
             top: 50%;
         }
-    }
+        position: relative;
+        overflow-y: scroll;
 
-    .new-room-form-container {
-        grid-area: f;
-        background-color: #3167aa;
-    }   
+        .emoji-mart {
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+        }
+    } 
 
     .send-message-form-container {
-        grid-area: s;
         background-color: #2b3f4d;
+        position: relative;
 
         .send-message-form {
             width: 100%;
             height: auto;
-            display: inline-block;
+            display: block;
 
-            .message-input {
-                width: 90%;
-                line-height: 3rem;
-                font-size: 1.5rem;
-                margin: 0.2rem;
-                border: 1px solid #45A29E;
-                font-size: 1.2rem;
-                outline: none;
-                transition: border;
-                transition-duration: 200ms;
-            
-                &:hover {
-                    border: 2px solid #45A29E;
+            .form-input {
+                display: grid;
+                grid-template-columns: 9fr 1fr;
+
+                .message-input {
+                    width: 100%;
+                    padding: 1rem 0;
+                    margin: auto;
+                    outline: none;
                 }
+
+                .toggle-emoji {
+                    border: 1px solid #45A29E;
+                    width: 100%;
+                    height: auto;
+                    padding: 7px 0;
+                    margin: auto;
+                    background-color: #45A29E;
+                }
+            
+                .toggle-emoji svg {
+                    width: 40px;
+                    height: 40px;
+                }
+    
             }
 
             .message-send-btn {
-                width: 8.5%;
-                padding: 1rem auto;
-                // display: flex;
-                // margin: auto;
-                height: 50px;
-                outline: none;
-                font-size: 1.2rem;
-                font-weight: 600;
-                border: 2px solid #45A29E;
-                border-radius: 5%;
-                background-color: white;
-                color: #45A29E;
-                cursor: pointer;
-                transition-property: background-color, color;
-                transition-duration: 300ms;
-            
-                &:hover {
-                    background-color: #45A29E;
-                    color: white;
-                  }
+                width: 100%;
+                margin: 0;
+                justify-content: center;
             }
         }
     }

@@ -1,41 +1,83 @@
-import React from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { Button } from "../../components/Button/Button"
 import { Input } from "../../components/input/Input"
+import { ChatMessages } from "./chat-messages/ChatMessages"
 import "./Chat.scss"
+import { UserInfo } from "../../types/Interfaces";
+import { useWebSocket, chatStateReducer, ChatActions } from "../../services/chat"
+import { Smile } from 'react-feather'
+import { EmojiData, Picker } from 'emoji-mart'
+import 'emoji-mart/css/emoji-mart.css';
+import { Emoji } from 'emoji-mart/dist-es/utils/data';
 
 type Props = {
-
+    user?: UserInfo | null;
 }
 
-export const Chat: React.FunctionComponent<Props> = () => {
+export const Chat: React.FunctionComponent<Props> = ({user}) => {
+
+    const[state, dispatch] = useReducer(chatStateReducer, {messages: []});
+
+    const [message, setMessage] = useState<string>('');
+
+    const socketClient = useWebSocket({
+        userId: user?.firstname
+    });
 
     const messageHandler = (value: string) => {
-        console.log(value)
+        setMessage(value)
     }
 
-    const sendMessageHandler = (e: React.FormEvent) => {
-        e.preventDefault()
-        console.log(e)
+    const messageSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setMessage("");
+        socketClient.sendMessage(message);
+    }
+
+    const onMessage = ({data} : {data: string}) => {
+        console.log(data);
+        dispatch ({
+            type: ChatActions.ADD_MESSAGE,
+            payload: data,
+        })
+    }
+
+    useEffect(() => {
+        socketClient.eventEmitter.on('message', onMessage);
+
+        return () => {
+            socketClient.eventEmitter.off('message', onMessage);
+            socketClient.close();
+        }
+    },[]);
+
+    const [showEmojiPicker, setShowEmojiPicker] = useState<Boolean>(false);
+
+    const toggleEmojiPicker = () => {
+        setShowEmojiPicker(!showEmojiPicker);
+    }
+    
+    const addEmoji = (emoji: EmojiData) => {
+        setMessage(`${message}${emoji.name}`);
+        setShowEmojiPicker(false);
     }
 
     return (
         <div className="Chat">
-            <div className="room-list-container">
-                <h1>Rooms</h1>
-            </div>
-            
             <div className="message-list-container">
-                <h1>Messages</h1>
-            </div>
-
-            <div className="new-room-form-container">
-                <h3>Create Room</h3>
+                <ChatMessages messages={ state.messages }/>
+                { showEmojiPicker ? ( <Picker set="emojione" onSelect={ addEmoji } /> ) : null }
             </div>
 
             <div className="send-message-form-container">
-                <form onSubmit={sendMessageHandler} className="send-message-form">  
-                    <input name="message" required={true} placeholder="Enter message" className="message-input" onChange={(e)=> messageHandler(e.target.value)}/>
-                    <button className="message-send-btn">Send</button>
+                <form onSubmit={messageSubmit} className="send-message-form">
+                    <div className="form-input">
+                        <Input name="message" value={message} required={false} placeholder="Enter message" className="message-input" onChange={(value)=> messageHandler(value)}/>
+                        <button type="button" className="toggle-emoji" onClick={toggleEmojiPicker}>
+                            <Smile />
+                        </button>  
+                    </div>
+                    <Button text="Send" className="message-send-btn"/>
                 </form>
             </div>
         </div>

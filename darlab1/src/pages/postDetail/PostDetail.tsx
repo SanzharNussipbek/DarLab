@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router"
 import './PostDetail.scss';
-import { Post } from "../../types/Intefaces"
+import { Post } from "../../types/Interfaces"
 import { getPost } from '../../services/api';
 import { Link } from "react-router-dom"
 

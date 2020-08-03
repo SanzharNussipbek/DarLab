@@ -36,7 +36,7 @@ export const Home: React.FunctionComponent = () => {
 
     return (
         <div className="Home">
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} className="login-form">
                 <div className="form-group">
                     <Input  name={"firstname"}
                             placeholder={"Enter your first name"}
