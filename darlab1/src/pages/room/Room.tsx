@@ -1,13 +1,23 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import "./Room.scss"
-import YouTube from 'react-youtube'
 import { Chat } from "../chat/Chat"
 import { RoomHeader } from "../../components/roomHeader/RoomHeader"
 import { UserContext } from '../../services/context';
-import { Button } from '../../components/Button/Button';
-import { FaPlayCircle, FaPauseCircle, FaFontAwesome } from 'react-icons/fa'
-import { Link } from 'react-feather';
+
+import YouTube from 'react-youtube'
+import CopyToClipboard from 'react-copy-to-clipboard';
+
+import { IconButton } from '@material-ui/core';
+import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
+import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
+import VolumeOffIcon from '@material-ui/icons/VolumeOff';
+import VolumeUpIcon from '@material-ui/icons/VolumeUp';
+import StopIcon from '@material-ui/icons/Stop';
+import SettingsBackupRestoreIcon from '@material-ui/icons/SettingsBackupRestore';
+import Forward10Icon from '@material-ui/icons/Forward10';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import FileCopyIcon from '@material-ui/icons/FileCopy';
 
 enum PlayerPlayStates {
     PLAYING = 'PLAYING',
@@ -82,15 +92,39 @@ export const Room: React.FunctionComponent = () => {
                     <YouTube videoId={id} containerClassName="video" onReady={onVideoInit}/>
                     
                     <div className="video-controls">
-                        <Button text='-10s' type='button' clickHandler={skipBack} />
-                        <Button text={playerMuteState !== PlayerMuteStates.MUTED ? 'Mute' : 'Unmute' } type='button' clickHandler={muteVideo} />
-                        <Button text={playerPlayState !== PlayerPlayStates.PLAYING ? 'Play' : 'Pause' } type='button' clickHandler={toggleVideo}/>
-                        <Button text='Stop' type='button' clickHandler={stopVideo} />
-                        <Button text='+10s' type='button' clickHandler={skipForward} />
-                    </div>
 
-                    <div className="youtube-link-wrapper">
-                        <a href={player?.getVideoUrl()} target="_blank">See on Youtube</a>
+                        <CopyToClipboard text={player?.getVideoUrl()}>
+                            <IconButton>
+                                <FileCopyIcon fontSize='large'/>
+                            </IconButton>
+                        </CopyToClipboard>
+
+                        <IconButton onClick={muteVideo}>
+                            { playerMuteState !== PlayerMuteStates.MUTED ? <VolumeUpIcon fontSize='large'/> : <VolumeOffIcon fontSize='large'/>}
+                        </IconButton>
+
+                        <IconButton onClick={skipBack}>
+                            <SettingsBackupRestoreIcon fontSize='large'/>
+                        </IconButton>
+
+                        <IconButton onClick={toggleVideo}>
+                            { playerPlayState !== PlayerPlayStates.PLAYING ? <PlayCircleFilledWhiteIcon fontSize='large'/> : <PauseCircleFilledIcon fontSize='large'/> }
+                        </IconButton>
+
+                        <IconButton onClick={skipForward}>
+                            <Forward10Icon fontSize='large'/>
+                        </IconButton>
+
+                        <IconButton onClick={stopVideo}>
+                            <StopIcon fontSize='large'/>
+                        </IconButton>
+
+                        <a href={player?.getVideoUrl()} target="_blank">
+                            <IconButton size='medium'>
+                                <YouTubeIcon fontSize='large'/>
+                            </IconButton>
+                        </a>
+
                     </div>
 
                 </div>
