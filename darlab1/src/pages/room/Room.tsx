@@ -95,33 +95,33 @@ export const Room: React.FunctionComponent = () => {
 
                         <CopyToClipboard text={player?.getVideoUrl()}>
                             <IconButton>
-                                <FileCopyIcon fontSize='large'/>
+                                <FileCopyIcon fontSize='large' style={{ color: '#1F2833' }}/>
                             </IconButton>
                         </CopyToClipboard>
 
                         <IconButton onClick={muteVideo}>
-                            { playerMuteState !== PlayerMuteStates.MUTED ? <VolumeUpIcon fontSize='large'/> : <VolumeOffIcon fontSize='large'/>}
+                            { playerMuteState !== PlayerMuteStates.MUTED ? <VolumeUpIcon fontSize='large' style={{ color: '#1F2833' }}/> : <VolumeOffIcon fontSize='large' style={{ color: '#1F2833' }}/>}
                         </IconButton>
 
                         <IconButton onClick={skipBack}>
-                            <SettingsBackupRestoreIcon fontSize='large'/>
+                            <SettingsBackupRestoreIcon fontSize='large' style={{ color: '#1F2833' }}/>
                         </IconButton>
 
                         <IconButton onClick={toggleVideo}>
-                            { playerPlayState !== PlayerPlayStates.PLAYING ? <PlayCircleFilledWhiteIcon fontSize='large'/> : <PauseCircleFilledIcon fontSize='large'/> }
+                            { playerPlayState !== PlayerPlayStates.PLAYING ? <PlayCircleFilledWhiteIcon fontSize='large' style={{ color: '#1F2833' }}/> : <PauseCircleFilledIcon fontSize='large' style={{ color: '#1F2833' }}/> }
                         </IconButton>
 
                         <IconButton onClick={skipForward}>
-                            <Forward10Icon fontSize='large'/>
+                            <Forward10Icon fontSize='large' style={{ color: '#1F2833' }}/>
                         </IconButton>
 
                         <IconButton onClick={stopVideo}>
-                            <StopIcon fontSize='large'/>
+                            <StopIcon fontSize='large' style={{ color: '#1F2833' }}/>
                         </IconButton>
 
                         <a href={player?.getVideoUrl()} target="_blank">
                             <IconButton size='medium'>
-                                <YouTubeIcon fontSize='large'/>
+                                <YouTubeIcon fontSize='large' style={{ color: '#1F2833' }}/>
                             </IconButton>
                         </a>
 

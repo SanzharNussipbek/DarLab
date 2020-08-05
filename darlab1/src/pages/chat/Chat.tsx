@@ -6,9 +6,8 @@ import "./Chat.scss"
 import { UserInfo } from "../../types/Interfaces";
 import { useWebSocket, chatStateReducer, ChatActions } from "../../services/chat"
 import { Smile } from 'react-feather'
-import { EmojiData, Picker } from 'emoji-mart'
+import { BaseEmoji, Picker } from 'emoji-mart'
 import 'emoji-mart/css/emoji-mart.css';
-import { Emoji } from 'emoji-mart/dist-es/utils/data';
 
 type Props = {
     user?: UserInfo | null;
@@ -58,30 +57,22 @@ export const Chat: React.FunctionComponent<Props> = ({user}) => {
         setShowEmojiPicker(!showEmojiPicker);
     }
     
-    const addEmoji = (emoji: EmojiData) => {
-        setMessage(`${message}${emoji.name}`);
+    const addEmoji = (emoji: BaseEmoji) => {
+        setMessage(`${message}${emoji.native}`);
         setShowEmojiPicker(false);
     }
-
-    // const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
-    //     if (event.key === 'Enter') {
-    //       event.preventDefault();
-    //       event.stopPropagation();
-    //       messageSubmit();
-    //     }
-    //   }
 
     return (
         <div className="Chat">
             <div className="message-list-container">
                 <ChatMessages messages={ state.messages }/>
-                { showEmojiPicker ? ( <Picker set="emojione" onSelect={ addEmoji } /> ) : null }
+                { showEmojiPicker ? ( <Picker set="apple" onSelect={ addEmoji } /> ) : null }
             </div>
 
             <div className="send-message-form-container">
                 <form onSubmit={messageSubmit} className="send-message-form">
                     <div className="form-input">
-                        <Input name="message" value={message} required={true} placeholder="Enter message" className="message-input" onChange={(value)=> messageHandler(value)}/>
+                        <Input name="message" value={message} required={true} placeholder="Type a message and hit ENTER" className="message-input" onChange={(value)=> messageHandler(value)}/>
                         <button type="button" className="toggle-emoji" onClick={toggleEmojiPicker}>
                             <Smile />
                         </button>  

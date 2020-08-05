@@ -37,9 +37,9 @@ function App() {
                 <li>
                   <Link to="/videos">Videos</Link>
                 </li>
-                {/* <li>
+                <li>
                   <Link to="/login">Login</Link>
-                </li> */}
+                </li>
               </ul>
             </div>
           </div>

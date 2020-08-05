@@ -60,10 +60,10 @@ export const Input: React.FunctionComponent<Props> = ({ name, placeholder, requi
                     onKeyDown={onKeyDown}
                     onChange={(e) => changeHandler(e.target.value)}></input>
             
-            <div className="form-error">
+            {/* <div className="form-error">
                 { inputError.isEmpty ? "This field is required" : ''}
                 { inputError.isInvalid ? "Entered value is invalid" : ''}
-            </div>
+            </div> */}
         </div>
     );
 }
