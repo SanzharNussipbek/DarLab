@@ -1,0 +1,58 @@
+:host {
+    font-size: 1.5rem;
+}
+
+.header {
+    padding: 1.2rem;
+    background-color: #1F2833;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+
+        .nav-wrapper {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        
+            .nav-item {
+                margin-right: 2rem;
+                font-weight: 700;
+    
+                a {
+                    text-decoration: none;
+                    color: #66FCF1;
+                    transition-property: border-bottom;
+                    transition-duration: 250ms;
+        
+                    &:hover {
+                        border-bottom: 2px solid #45A29E;
+                    }
+    
+                    &.disabled {
+                        color: #989e9d;
+                        pointer-events: none;
+                    }
+                }
+            }
+            .login-btn {
+                font-size: 1.2rem;
+                padding: auto 1rem;
+                color: #66FCF1;
+                border: 1px solid #66FCF1;
+                background-color: #1F2833;
+                cursor: pointer;
+                outline: none;
+                transition-property: background-color, color;
+                transition-duration: 300ms;
+    
+                &:hover {
+                    background-color: #45A29E;
+                    color: white;
+                }
+            }
+        }
+    }
+}
