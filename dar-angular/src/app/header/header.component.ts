@@ -14,6 +14,9 @@ export class HeaderComponent implements OnInit {
   @Input()
   navItems: NavItem[] = [];
 
+  @Input()
+  srcLogoFromNav: string = '';
+
   constructor() { }
 
   ngOnInit(): void {

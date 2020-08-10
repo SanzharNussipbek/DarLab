@@ -27,6 +27,8 @@ export class AppComponent {
     }
   ];
 
+  srcLogoFromApp: string = '../assets/dar_logo.png';
+
   sideNavItemsFromApp: SideNavItem[] = [
     {
       title: 'Account',
