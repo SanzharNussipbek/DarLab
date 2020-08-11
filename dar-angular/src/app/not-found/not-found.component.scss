@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .not-found {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            margin: .5rem;
+            font-size: 2.5rem;
+        }
+
+        .return-btn {
+            margin: 1rem;
+            padding: 1rem 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background-color: #1F2833;
+            color: #66FCF1;
+            border: 1px solid #1F2833;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+            transition-property: background-color, color;
+            transition-duration: 300ms;
+    
+            &:hover {
+                background-color: #66FCF1;
+                color: #1F2833;
+            }
+        }
+    }
+}

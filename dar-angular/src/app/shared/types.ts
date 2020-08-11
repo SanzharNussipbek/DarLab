@@ -9,3 +9,10 @@ export interface SideNavItem {
     enabled: boolean;
     url: string;
 }
+
+export interface User {
+    id: number;
+    name: string;
+    email: string;
+    username: string;
+}

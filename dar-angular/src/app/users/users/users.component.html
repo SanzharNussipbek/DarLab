@@ -1,0 +1,18 @@
+<h2>Users list</h2>
+<div class="users-table">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+
+        <tr *ngFor="let user of users" (click)="navigateToUser(user.id)">
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+</div>

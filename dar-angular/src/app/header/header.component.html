@@ -5,7 +5,7 @@
             <ng-container *ngFor="let navItem of navItems">
                 <li class="nav-item" *ngIf="navItem.enabled">
                     <a 
-                        [href]="navItem.url"
+                        [routerLink]="[navItem.url]"
                         [ngClass]="{'disabled' : !navItem.url}"
                     >
                         {{ navItem.title }}

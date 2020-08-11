@@ -1,0 +1,71 @@
+<div class='user-container'>
+    <ng-container *ngIf="user">
+        <h2>{{ user.username }}</h2>
+        <table>
+            <tr class="user-detail">
+                <td class="detail-name">
+                    Name
+                </td>
+
+                <td class="detail-value">
+                    {{ user.name }}
+                </td>
+            </tr>
+            <tr class="user-detail">
+                <td class="detail-name">
+                    Email
+                </td>
+
+                <td class="detail-value">
+                    {{ user.email }}
+                </td>
+            </tr>
+            <tr class="user-detail">
+                <td class="detail-name">
+                    Phone
+                </td>
+
+                <td class="detail-value">
+                    {{ user.phone }}
+                </td>
+            </tr>
+            <tr class="user-detail">
+                <td class="detail-name">
+                    Website
+                </td>
+
+                <td class="detail-value">
+                    {{ user.website }}
+                </td>
+            </tr>
+            <tr class="user-detail">
+                <td class="detail-name">
+                    Address
+                </td>
+
+                <td class="detail-value">
+                    {{ user.address.suite }}
+                    <br>
+                    {{ user.address.street }}
+                    <br>
+                    {{ user.address.city }}
+                    <br>
+                    {{ user.address.zipcode }}
+                </td>
+            </tr>
+            <tr class="user-detail">
+                <td class="detail-name">
+                    Company
+                </td>
+
+                <td class="detail-value">
+                    {{ user.company.name }}
+                    <br>
+                    {{ user.company.catchPhrase }}
+                </td>
+            </tr>
+
+        </table>
+    </ng-container>
+    <button type='button' class="go-back-btn" (click)="navigateToUsers()">Go Back</button>
+</div>
