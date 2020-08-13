@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/shared/types';
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-users',
@@ -12,29 +12,38 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-  users: User[] = [];
+  users$: Observable<User[]>;
+
+  searchInput = '';
 
   constructor(
-    private httpClient: HttpClient,
+    private userService: UserService,
     private router: Router,  
   ) { }
 
   ngOnInit(): void {
-    this.httpClient
-      .get<User[]>('https://jsonplaceholder.typicode.com/users') // is Observable
+    this.getData();
+  }
+
+  getData() {
+    this.users$ = this.userService.getUsers()
       .pipe(
-        catchError((err) => {
-          console.log('Error trying to get Users', err)
-          return of([]);
-        })
-      )
-      .subscribe(data => {
-        this.users = data;
-      })
+        map(users => this.searchInput ? users.filter(user => user.name.includes(this.searchInput) || user.username.includes(this.searchInput)) : users)
+      );
   }
 
   navigateToUser(id: number) {
     this.router.navigate(['/users', id]);
+  }
+
+  search() {
+    console.log(this.searchInput);
+    this.getData()
+  }
+
+  clearSearch() {
+    this.searchInput = '';
+    this.getData();
   }
 }
 /*

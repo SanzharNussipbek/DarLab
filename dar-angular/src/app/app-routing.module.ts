@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UsersComponent } from './users/users/users.component'
+
 import { NotFoundComponent } from './not-found/not-found.component'
 import { LayoutComponent } from './layout/layout.component';
-import { UserComponent } from './users/user/user.component';
 
 const routes: Routes = [
   {
@@ -11,12 +10,8 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: 'users/:id',
-        component: UserComponent,
-      },
-      {
         path: 'users',
-        component: UsersComponent,
+        loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
       }
     ]
   },

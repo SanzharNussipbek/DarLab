@@ -59,6 +59,7 @@
                     </td>
     
                     <td class="detail-value">
+                        <!-- {{ user.address | concatFields: 'suite':'street':'city':'zipcode' }} -->
                         <ng-container  *ngIf="user.address.suite">
                             {{ user.address.suite }}
                             <br>
