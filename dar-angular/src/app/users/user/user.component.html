@@ -1,69 +1,100 @@
 <div class='user-container'>
     <ng-container *ngIf="user">
-        <h2>{{ user.username }}</h2>
+        <ng-container  *ngIf="user.username">
+            <h2>{{ user.username }}</h2>
+        </ng-container>
         <table>
-            <tr class="user-detail">
-                <td class="detail-name">
-                    Name
-                </td>
+            <ng-container  *ngIf="user.name">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Name
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.name }}
+                    </td>
+                </tr>
+            </ng-container>
 
-                <td class="detail-value">
-                    {{ user.name }}
-                </td>
-            </tr>
-            <tr class="user-detail">
-                <td class="detail-name">
-                    Email
-                </td>
+            <ng-container  *ngIf="user.email">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Email
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.email }}
+                    </td>
+                </tr>
+            </ng-container>
 
-                <td class="detail-value">
-                    {{ user.email }}
-                </td>
-            </tr>
-            <tr class="user-detail">
-                <td class="detail-name">
-                    Phone
-                </td>
+            <ng-container  *ngIf="user.phone">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Phone
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.phone }}
+                    </td>
+                </tr>
+            </ng-container>
+            
+            <ng-container  *ngIf="user.website">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Website
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.website }}
+                    </td>
+                </tr>
+            </ng-container>
 
-                <td class="detail-value">
-                    {{ user.phone }}
-                </td>
-            </tr>
-            <tr class="user-detail">
-                <td class="detail-name">
-                    Website
-                </td>
+            <ng-container  *ngIf="user.address">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Address
+                    </td>
+    
+                    <td class="detail-value">
+                        <ng-container  *ngIf="user.address.suite">
+                            {{ user.address.suite }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.address.street">
+                            {{ user.address.street }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.address.city">
+                            {{ user.address.city }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.zipcode">
+                            {{ user.address.zipcode }}
+                        </ng-container>
+                    </td>
+                </tr>
+            </ng-container>
 
-                <td class="detail-value">
-                    {{ user.website }}
-                </td>
-            </tr>
-            <tr class="user-detail">
-                <td class="detail-name">
-                    Address
-                </td>
-
-                <td class="detail-value">
-                    {{ user.address.suite }}
-                    <br>
-                    {{ user.address.street }}
-                    <br>
-                    {{ user.address.city }}
-                    <br>
-                    {{ user.address.zipcode }}
-                </td>
-            </tr>
-            <tr class="user-detail">
-                <td class="detail-name">
-                    Company
-                </td>
-
-                <td class="detail-value">
-                    {{ user.company.name }}
-                    <br>
-                    {{ user.company.catchPhrase }}
-                </td>
-            </tr>
+            <ng-container  *ngIf="user.company">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Company
+                    </td>
+    
+                    <td class="detail-value">
+                        <ng-container  *ngIf="user.company.name">
+                            {{ user.company.name }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.company.catchPhrase">
+                            {{ user.company.catchPhrase }}
+                        </ng-container>
+                    </td>
+                </tr>
+            </ng-container>
 
         </table>
     </ng-container>
