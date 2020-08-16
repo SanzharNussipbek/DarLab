@@ -10,7 +10,43 @@
     }
 
     .users-table {
-        margin: 1rem auto;
+
+        .search-container {
+            margin-bottom: .2rem;
+
+            .search-field {
+                border: 1px solid #28394e;
+                padding: .5rem;
+                font-size: 1rem;
+                outline: none;
+                transition-property: border;
+                transition-duration: 200ms;
+
+                &:focus {
+                    border: 1.2px solid #45A29E;
+                }
+            }
+
+            .btn {
+                padding: .25rem;
+                margin-left: .75rem;
+                font-size: 1rem;
+                font-weight: 500;
+                color: #1F2833;
+                border: 1px solid #1F2833;
+                background-color: #ffffff;
+                border-radius: 50px;
+                cursor: pointer;
+                outline: none;
+                transition-property: background-color, color;
+                transition-duration: 300ms;
+
+                &:hover {
+                    background-color: #66FCF1;
+                    color: #1F2833;
+                }
+            }
+        }
 
         table {
             border-collapse: collapse;
@@ -25,7 +61,7 @@
                 }
                 
                 &:hover {
-                    color: white;
+                    color: rgb(255,255,255);
                     background-color: #28394e;
                 }
             }

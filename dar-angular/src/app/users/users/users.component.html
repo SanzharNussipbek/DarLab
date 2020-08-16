@@ -1,8 +1,11 @@
 <h2>Users list</h2>
 <div class="users-table">
-    <input class="text" placeholder="Search by name" [(ngModel)]="searchInput"/>
-    <button (click)="clearSearch()">Clear</button>
-    <button (click)="search()">Seacrh</button>
+    <div class="search-container">
+        <input class="search-field" type="text" placeholder="Search by name" [(ngModel)]="searchInput"/>
+        <button class="btn" (click)="search()">Seacrh</button>
+        <button class="btn" (click)="clearSearch()">Clear</button>
+    </div>
+    
     <table>
         <tr>
             <th>ID</th>

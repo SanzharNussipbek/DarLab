@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavItem } from '../shared/types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,13 +18,16 @@ export class HeaderComponent implements OnInit {
   @Input()
   srcLogoFromNav: string = '';
 
-  constructor() { }
+  constructor(
+    private router : Router,
+  ) { }
 
   ngOnInit(): void {
   }
 
   onLoginClick(): void {
     this.showLoginBtn = false;
+    this.router.navigate(['/login']);
   }
 
 }

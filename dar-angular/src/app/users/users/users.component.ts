@@ -38,7 +38,8 @@ export class UsersComponent implements OnInit {
 
   search() {
     console.log(this.searchInput);
-    this.getData()
+    if (this.searchInput)
+      this.getData()
   }
 
   clearSearch() {
