@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavItem } from '../shared/types';
 import { Router } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,25 +10,31 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  showLoginBtn = true;
-
-
   @Input()
   navItems: NavItem[] = [];
 
   @Input()
   srcLogoFromNav: string = '';
 
+  isLoggedIn: boolean;
+  
   constructor(
     private router : Router,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
+    this.authService.isLoggedIn$
+      .subscribe(val => this.isLoggedIn = val)
   }
 
   onLoginClick(): void {
-    this.showLoginBtn = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
+  }
+
+  onLogoutClick(): void {
+    this.router.navigate(['/auth/login']);
+    this.isLoggedIn = false;
   }
 
 }

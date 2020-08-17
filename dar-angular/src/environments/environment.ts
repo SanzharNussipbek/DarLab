@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  clientId: '6c567730-8b2c-4419-97cf-67de9e9806d5',
+  clientSecret: 'sT5LchMOJ281eostH3k5G1RQIRRanqKyVuFY-oqgi6wn5w12h79KocGEAUqWMX1U',
+  griffonApiUrl: 'https://griffon.dar-dev.zone/api/v1',
 };
 
 /*

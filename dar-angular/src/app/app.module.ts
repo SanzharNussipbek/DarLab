@@ -18,13 +18,13 @@ import { SharedModule } from './shared/shared.module';
     SidenavComponent,
     LogoComponent,
     NotFoundComponent,
-    LayoutComponent
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
