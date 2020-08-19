@@ -5,7 +5,7 @@
             {{ errorMessage }}
         </div>
         
-        <input type="text" placeholder="Username" name="username" class="login-input" formControlName="username"/>
+        <input type="text" placeholder="Username" name="username" class="form-control" formControlName="username"/>
         <div class="form-error" *ngIf="form.get('username').touched && form.get('username').invalid">
             <span *ngIf="form.get('username').errors.required">
                 This field is required
@@ -15,7 +15,7 @@
             </span>
         </div>
         
-        <input type="password" placeholder="Password" name="password" class="login-input" formControlName="password"/>
+        <input type="password" placeholder="Password" name="password" class="form-control" formControlName="password"/>
         <div class="form-error" *ngIf="form.get('password').touched && form.get('password').invalid">
             <span *ngIf="form.get('username').errors.required">
                 This field is required

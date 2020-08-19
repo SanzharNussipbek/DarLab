@@ -27,12 +27,10 @@ export class LoginComponent implements OnInit {
       username: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
     });
-
   }
 
   onSubmit() {
     this.errorMessage = '';
-    console.log(this.form)
 
     if (this.form.invalid) {
       return;

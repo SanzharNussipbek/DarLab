@@ -12,26 +12,17 @@
                     </a>
                 </li>
             </ng-container>
-            <li *ngIf="!isLoggedIn; else showLogout">
-                <button 
-                    type="button" 
-                    class="login-btn"
-                    (click)="onLoginClick()"
-                >
+            
+            <li *ngIf="!isLoggedIn">
+                <button  type="button" class="login-btn" (click)="onLoginClick()">
                     Login
                 </button>
             </li>
-            <ng-template #showLogout>
-                <li *ngIf="!isLoggedIn; else showLogout">
-                    <button 
-                        type="button" 
-                        class="login-btn"
-                        (click)="onLogoutClick()"
-                    >
-                        Logout
-                    </button>
-                </li>
-            </ng-template>
+            <li *ngIf="isLoggedIn">
+                <button type="button" class="login-btn" (click)="onLogoutClick()">
+                    Logout
+                </button>
+            </li>
         </ul>
     </nav>
 </div>

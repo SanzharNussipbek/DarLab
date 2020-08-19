@@ -33,8 +33,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogoutClick(): void {
+    this.authService.setLoggedOut()
     this.router.navigate(['/auth/login']);
-    this.isLoggedIn = false;
   }
 
 }

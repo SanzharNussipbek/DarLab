@@ -4,6 +4,7 @@ import { catchError } from 'rxjs/operators';
 import { EMPTY } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -12,9 +13,9 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  username = '';
-  password = '';
   errorMessage = ''
+
+  form: FormGroup;
 
   constructor(
     private authService: AuthService,
@@ -22,29 +23,31 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.form = new FormGroup({
+      username: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', Validators.required),
+    });
   }
 
   onSubmit() {
-    if(!this.username || !this.password){
-      this.errorMessage = 'Fill all required fields!';
+    if (this.form.invalid) {
       return;
     }
 
     this.errorMessage='';
 
-    this.authService.register(this.username, this.password)
+    this.authService.register(this.form.get('username').value, this.form.value['password'])
       .pipe(
         catchError((err: HttpErrorResponse) => {
-          console.log(err);
           this.errorMessage = err.error ? err.error.message : err.message;
-          this.password='';
-          this.username='';
+          this.form.reset();
           return EMPTY;
         })
       )
-      .subscribe(res => {
-        console.log(res);
-        this.router.navigate(['auth/login']);
+      .subscribe(res=>{
+        console.log(res)
+        alert("Registered successfully!")
+        this.router.navigate(['/auth/login']);
       });
   }
 }
