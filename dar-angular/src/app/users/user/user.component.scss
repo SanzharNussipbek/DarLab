@@ -14,6 +14,23 @@
             text-transform: uppercase;
             font-size: 2.2rem;
         }
+
+        .user-form-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 1.2rem;
+            padding: .2rem 1rem;
+            border: 1px solid #000;
+            border-radius: 25px;
+            margin-bottom: 1rem;
+            transition-property: color background-color border-color;
+            transition-duration: 300ms;
+
+            &:hover {
+                background-color: #000;
+                color: #fff;
+            }
+        }
     
         table {
             border-collapse: collapse;
@@ -35,7 +52,7 @@
     
         .go-back-btn {
             margin: 2rem;
-            padding: 1rem 1.5rem;
+            padding: .75rem 1rem;
             font-size: 1.2rem;
             font-weight: 600;
             background-color: #1F2833;

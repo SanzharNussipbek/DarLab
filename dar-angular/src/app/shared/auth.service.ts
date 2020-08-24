@@ -39,7 +39,6 @@ export class AuthService {
 
   setLoggedOut() {
     localStorage.removeItem('dar-lab-auth');
-    localStorage.clear();
     this.authInfo = null;
     this.isLoggedIn.next(false);
   }
@@ -54,10 +53,6 @@ export class AuthService {
       password,
     };
     return this.httpClient.post<AuthInfo>(`${environment.griffonApiUrl}/oauth/token`, data);
-  }
-
-  logout() {
-
   }
 
   register(username: string, password: string) {

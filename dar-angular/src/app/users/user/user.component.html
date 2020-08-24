@@ -3,6 +3,7 @@
         <ng-container  *ngIf="user.username">
             <h2>{{ user.username }}</h2>
         </ng-container>
+        <a [routerLink]="['/users/form/'+user.id]" class="user-form-link">Edit</a>
         <table>
             <ng-container  *ngIf="user.name">
                 <tr class="user-detail">
@@ -92,6 +93,10 @@
                         </ng-container>
                         <ng-container  *ngIf="user.company.catchPhrase">
                             {{ user.company.catchPhrase }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.company.bs">
+                            {{ user.company.bs }}
                         </ng-container>
                     </td>
                 </tr>

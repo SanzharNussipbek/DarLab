@@ -7,12 +7,15 @@ import { UsersRoutingModule } from './users-routing.module'
 import { SharedModule } from '../shared/shared.module'
 import { UserService } from './services/user.service'
 import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { UserDetailResolver } from './services/userDetail.resolver';
+import { UserFormComponent } from './user-form/user-form.component'
 
 @NgModule ({
     declarations: [
         UserComponent,
-        UsersComponent
+        UsersComponent,
+        UserFormComponent
     ],
     imports: [
         CommonModule,
@@ -20,9 +23,11 @@ import { FormsModule } from '@angular/forms'
         HttpClientModule,
         SharedModule,
         FormsModule,
+        ReactiveFormsModule,
     ],
     providers: [
         UserService,
+        UserDetailResolver
     ]
 })
 

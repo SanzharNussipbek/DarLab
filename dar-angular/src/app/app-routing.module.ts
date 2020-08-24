@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component'
 import { LayoutComponent } from './layout/layout.component';
 import { AuthModule } from './auth/auth.module'
+import { AuthGuard } from './shared/auth.guard'
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'users',

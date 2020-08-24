@@ -1,6 +1,3 @@
-import { ComponentFactory } from '@angular/core';
-import { pipe } from 'rxjs';
-
 export interface NavItem {
     title: string;
     enabled: boolean;
@@ -34,6 +31,7 @@ export interface Address {
 export interface Company {
     name: string;
     catchPhrase: string;
+    bs: string;
 }
 
 
