@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router"
 import './PostDetail.scss';
-import { Post } from "../../types/Intefaces"
+import { Post } from "../../types/Interfaces"
 import { getPost } from '../../services/api';
-import { Button } from "../../components/Button/Button"
-import { useHistory, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export const PostDetail: React.FunctionComponent = () => {
 
@@ -16,11 +15,6 @@ export const PostDetail: React.FunctionComponent = () => {
         getPost(id)
             .then(data => setPost(data))
     }, []);
-
-    const handleGoBack = () => {
-        // let history = useHistory()
-        // history.goBack()
-    }
 
     return (
         <div className="Post">

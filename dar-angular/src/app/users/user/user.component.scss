@@ -1,0 +1,73 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+
+    .user-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h2 {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.2rem;
+        }
+
+        .user-form-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 1.2rem;
+            padding: .2rem 1rem;
+            border: 1px solid #000;
+            border-radius: 25px;
+            margin-bottom: 1rem;
+            transition-property: color background-color border-color;
+            transition-duration: 300ms;
+
+            &:hover {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+    
+        table {
+            border-collapse: collapse;
+            font-size: 1.2rem;
+            margin: 1rem;
+            
+            td {
+                padding: 1rem;
+                text-align: left;
+                border-bottom: 2px solid rgba(143, 142, 142, 0.356);
+            }
+    
+            .detail-name {
+                text-transform: uppercase;
+                font-weight: 600;
+                width: 40%;
+            }
+        }
+    
+        .go-back-btn {
+            margin: 2rem;
+            padding: .75rem 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            background-color: #1F2833;
+            color: #66FCF1;
+            border: 1px solid #1F2833;
+            border-radius: 50px;
+            cursor: pointer;
+            outline: none;
+            transition-property: background-color, color;
+            transition-duration: 300ms;
+
+            &:hover {
+                background-color: #66FCF1;
+                color: #1F2833;
+            }
+        }
+    }
+}

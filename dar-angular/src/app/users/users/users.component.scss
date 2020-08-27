@@ -1,0 +1,88 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    
+    h2 {
+        text-transform: uppercase;
+        font-size: 2.2rem;
+    }
+
+    .users-table {
+
+        .search-container {
+            margin-bottom: .2rem;
+
+            .search-field {
+                border: 1px solid #28394e;
+                padding: .5rem;
+                font-size: 1rem;
+                outline: none;
+                transition-property: border;
+                transition-duration: 200ms;
+
+                &:focus {
+                    border: 1.2px solid #45A29E;
+                }
+            }
+
+            .btn {
+                padding: .25rem;
+                margin-left: .75rem;
+                font-size: 1rem;
+                font-weight: 500;
+                color: #1F2833;
+                border: 1px solid #1F2833;
+                background-color: #ffffff;
+                border-radius: 50px;
+                cursor: pointer;
+                outline: none;
+                transition-property: background-color, color;
+                transition-duration: 300ms;
+
+                &:hover {
+                    background-color: #66FCF1;
+                    color: #1F2833;
+                }
+            }
+        }
+
+        table {
+            border-collapse: collapse;
+            font-size: 1.2rem;
+
+            tr {
+
+                transition-property: color background-color;
+                transition-duration: 300ms;
+                &:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+                
+                &:hover {
+                    color: rgb(255,255,255);
+                    background-color: #28394e;
+                }
+            }
+
+            td {
+                padding: 1rem;
+                border-bottom: 2px solid rgb(143, 142, 142);
+                text-align: left;
+            }
+
+            th {
+                color: white;
+                background-color: #1F2833;
+                padding: 1rem;
+                text-align: center;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+td {
+    cursor: pointer;
+}

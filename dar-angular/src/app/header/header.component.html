@@ -1,0 +1,28 @@
+<div class="header">
+    <nav>
+        <app-logo [srcLogo]="srcLogoFromNav"></app-logo>
+        <ul class="nav-wrapper" *ngIf="navItems">
+            <ng-container *ngFor="let navItem of navItems">
+                <li class="nav-item" *ngIf="navItem.enabled">
+                    <a 
+                        [routerLink]="[navItem.url]"
+                        [ngClass]="{'disabled' : !navItem.url}"
+                    >
+                        {{ navItem.title }}
+                    </a>
+                </li>
+            </ng-container>
+            
+            <li *ngIf="!isLoggedIn">
+                <button  type="button" class="login-btn" (click)="onLoginClick()">
+                    Login
+                </button>
+            </li>
+            <li *ngIf="isLoggedIn">
+                <button type="button" class="login-btn" (click)="onLogoutClick()">
+                    Logout
+                </button>
+            </li>
+        </ul>
+    </nav>
+</div>

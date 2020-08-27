@@ -1,0 +1,66 @@
+.Chat {
+    width: 100%;
+
+    .message-list-container {
+        background-color: #ffffff;
+        border: 1px solid black;
+        height: 600px;
+        text-align: center;
+        h1 {
+            position: relative;
+            top: 50%;
+        }
+        position: relative;
+        overflow-y: scroll;
+
+        .emoji-mart {
+            position: absolute;
+            bottom: 20px;
+            right: 10px;
+        }
+    } 
+
+    .send-message-form-container {
+        background-color: #2b3f4d;
+        position: relative;
+
+        .send-message-form {
+            width: 100%;
+            height: auto;
+            display: block;
+
+            .form-input {
+                display: grid;
+                grid-template-columns: 9fr 1fr;
+
+                .message-input {
+                    width: 100%;
+                    padding: 1rem 0;
+                    margin: auto;
+                    outline: none;
+                }
+
+                .toggle-emoji {
+                    border: 1px solid #45A29E;
+                    width: 100%;
+                    height: auto;
+                    padding: 7px 0;
+                    margin: auto;
+                    background-color: #45A29E;
+                }
+            
+                .toggle-emoji svg {
+                    width: 40px;
+                    height: 40px;
+                }
+    
+            }
+
+            .message-send-btn {
+                width: 100%;
+                margin: 0;
+                justify-content: center;
+            }
+        }
+    }
+}

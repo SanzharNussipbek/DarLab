@@ -1,0 +1,24 @@
+<h2>Users list</h2>
+<div class="users-table">
+    <div class="search-container">
+        <input class="search-field" type="text" placeholder="Search by name" [(ngModel)]="searchInput"/>
+        <button class="btn" (click)="search()">Seacrh</button>
+        <button class="btn" (click)="clearSearch()">Clear</button>
+    </div>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+
+        <tr *ngFor="let user of users$ | async" (click)="navigateToUser(user.id)">
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+        </tr>
+    </table>
+</div>

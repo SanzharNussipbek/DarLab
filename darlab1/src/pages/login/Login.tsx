@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Button } from "../../components/Button/Button"
-import { Input } from "../../components/Input/Input"
 import "./Login.scss"
 
 export const Login: React.FunctionComponent = () => {
@@ -30,7 +29,7 @@ export const Login: React.FunctionComponent = () => {
             <h3 className="login-title">Login</h3>
             <input type="text" placeholder="Username" name="username" className="login-input" onChange={handleChange}/>
             <input type="password" placeholder="Password" name="password" className="login-input" onChange={handleChange}/>
-            <button type="submit" className="btn submit-btn">Submit</button>
+            <Button text={"Submit"} className={"submit-btn"}/>
         </form>
     );
 }

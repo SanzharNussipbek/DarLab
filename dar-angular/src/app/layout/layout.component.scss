@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .main {
+        height: calc(100vh - 66.375px);
+        display: flex;
+    
+        app-sidenav {
+            flex: 0 1 250px;
+            height: 100%;
+        }
+        
+        .content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+        }
+    }
+}

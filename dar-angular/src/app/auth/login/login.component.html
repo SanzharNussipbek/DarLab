@@ -1,0 +1,32 @@
+<div class="login-wrapper">
+    <form class="login" [formGroup]="form">
+        <h3 class="login-title">Login</h3>
+        <div class="error-wrapper" *ngIf="errorMessage">
+            {{ errorMessage }}
+        </div>
+        
+        <input type="text" placeholder="Username" name="username" class="form-control" formControlName="username"/>
+        <div class="form-error" *ngIf="form.get('username').touched && form.get('username').invalid">
+            <span *ngIf="form.get('username').errors.required">
+                This field is required
+            </span>
+            <span *ngIf="form.get('username').errors.email">
+                Please enter valid email address
+            </span>
+        </div>
+        
+        <input type="password" placeholder="Password" name="password" class="form-control" formControlName="password"/>
+        <div class="form-error" *ngIf="form.get('password').touched && form.get('password').invalid">
+            <span *ngIf="form.get('username').errors.required">
+                This field is required
+            </span>
+        </div>
+        
+        <button type="button" class="login-btn" (click)="onSubmit()">Sign In</button>
+        
+        <div class="signup-container">
+            <p>First time here?</p>
+            <a [routerLink]="['/auth/register']">Sign Up</a>
+        </div>
+    </form>
+</div>

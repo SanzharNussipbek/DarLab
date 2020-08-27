@@ -1,0 +1,45 @@
+<div *ngIf="user">
+    <h1>Edit user {{ user.username }}</h1>
+    <form [formGroup]="form">
+        <div class="user-info-block" formGroupName="commonInfo">
+            <h2>Commom Info</h2>
+            <div class="form-group" *ngFor="let controlConfig of fieldNameMap.commonInfo">
+                <label class="form-control-label">{{ controlConfig.label }}</label>
+                <input type="text" class="form-control" [formControlName]="controlConfig.field">
+                <div class="form-control-error">
+                </div>
+            </div>
+        </div>
+
+        <div class="user-info-block" formGroupName="company">
+            <h2>Company</h2>
+            <div class="form-group" *ngFor="let controlConfig of fieldNameMap.company">
+                <label class="form-control-label">{{ controlConfig.label }}</label>
+                <input type="text" class="form-control" [formControlName]="controlConfig.field">
+                <div class="form-control-error">
+                </div>
+            </div>
+            <div class="bs-list">
+                <h3>Business sectors</h3>
+                <div class="form-group inner" *ngFor="let control of bsFormArray.controls">
+                    <input type="text" class="form-control" [formControl]="control">
+                    <button type="button" class="bs-btn bs-del-btn" (click)="removeBS(control.value)">Remove</button>
+                </div>
+                <button type="button" class="bs-btn" (click)="addBS()">Add Business Sector</button>
+            </div>
+        </div>
+
+        <div class="user-info-block" formGroupName="address">
+            <h2>Address</h2>
+            <div class="form-group" *ngFor="let controlConfig of fieldNameMap.address">
+                <label class="form-control-label">{{ controlConfig.label }}</label>
+                <input type="text" class="form-control" [formControlName]="controlConfig.field">
+                <div class="form-control-error">
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <button type="button" class="go-back" (click)="saveUser()">Save</button>
+    <a [routerLink]="['/users/',user.id]" class="go-back">Go Back</a>
+</div>

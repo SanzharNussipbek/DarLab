@@ -1,44 +1,85 @@
 .App {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 0;
+  margin: 0;
+
+  // display: flex;
+  // flex-direction: column;
+
+  display: grid;
+  grid-template-rows: 70px 5fr;
+  grid-template-areas: "nav"
+                       "main";
 
   .App-navigation {
-    display: flex;
+    grid-area: nav;
     width: 100%;
-    justify-content: flex-end;
-    
-    ul {
-      padding: 1rem;
-      list-style: none;
-      display: flex;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background-color: #1F2833;
+    z-index: 1;
 
-      li {
-        margin-right: 40px;
+    .logo-wrapper {
+      margin: 15px;
+      position: relative;
 
-        a{
-          text-decoration: none;
-          color: #e91e63;
-          font-size: 1.2rem;
-          font-weight: 700;
-          padding: 0.5rem 0;
-          transition-property: border-bottom;
-          transition-duration: 300ms;
+      a {
+        outline: none;
+        text-decoration: none;
+        
+        img {
+          position: absolute;
+          width: 150px;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          margin: auto;
+        }
+      }
+    }
 
-          &:hover {
-            border-bottom: 2px solid #e91e63;
+    .links-wrapper {
+      justify-content: flex-end;
+
+      ul {
+        padding: .5rem;
+        list-style: none;
+        display: inline-flex;
+  
+        li {
+          margin-right: 2rem;
+  
+          a{
+            text-decoration: none;
+            color: #66FCF1;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.5rem;
+            transition-property: border-bottom;
+            transition-duration: 250ms;
+  
+            &:hover {
+              border-bottom: 2px solid #45A29E;
+            }
           }
         }
       }
     }
   }
 
-  .App-content {
-    flex: 1;
+  main {
+    grid-area: main;
+    // flex: 1;
+    width: 100%;
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    // flex-direction: column;
+    // align-items: center;
+
+    .not-found {
+      color: #45A29E;
+    }
   }
 }

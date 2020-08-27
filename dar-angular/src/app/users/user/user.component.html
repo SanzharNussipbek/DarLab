@@ -1,0 +1,108 @@
+<div class='user-container'>
+    <ng-container *ngIf="user">
+        <ng-container  *ngIf="user.username">
+            <h2>{{ user.username }}</h2>
+        </ng-container>
+        <a [routerLink]="['/users/form/'+user.id]" class="user-form-link">Edit</a>
+        <table>
+            <ng-container  *ngIf="user.name">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Name
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.name }}
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-container  *ngIf="user.email">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Email
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.email }}
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-container  *ngIf="user.phone">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Phone
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.phone }}
+                    </td>
+                </tr>
+            </ng-container>
+            
+            <ng-container  *ngIf="user.website">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Website
+                    </td>
+    
+                    <td class="detail-value">
+                        {{ user.website }}
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-container  *ngIf="user.address">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Address
+                    </td>
+    
+                    <td class="detail-value">
+                        <!-- {{ user.address | concatFields: 'suite':'street':'city':'zipcode' }} -->
+                        <ng-container  *ngIf="user.address.suite">
+                            {{ user.address.suite }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.address.street">
+                            {{ user.address.street }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.address.city">
+                            {{ user.address.city }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.zipcode">
+                            {{ user.address.zipcode }}
+                        </ng-container>
+                    </td>
+                </tr>
+            </ng-container>
+
+            <ng-container  *ngIf="user.company">
+                <tr class="user-detail">
+                    <td class="detail-name">
+                        Company
+                    </td>
+    
+                    <td class="detail-value">
+                        <ng-container  *ngIf="user.company.name">
+                            {{ user.company.name }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.company.catchPhrase">
+                            {{ user.company.catchPhrase }}
+                            <br>
+                        </ng-container>
+                        <ng-container  *ngIf="user.company.bs">
+                            {{ user.company.bs }}
+                        </ng-container>
+                    </td>
+                </tr>
+            </ng-container>
+
+        </table>
+    </ng-container>
+    <button type='button' class="go-back-btn" (click)="navigateToUsers()">Go Back</button>
+</div>

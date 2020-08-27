@@ -1,0 +1,18 @@
+<div class="sidenav-wrapper">
+    <div class="sidenav-title">
+        <h1>Admin</h1>
+    </div>
+
+    <ul class="sidenav-body" *ngIf="sideNavItems">
+        <ng-container *ngFor="let sideNavItem of sideNavItems">
+            <li class="sidenav-item">
+                <a 
+                    [href]="sideNavItem.url"
+                    [ngClass]="{'disabled' : !sideNavItem.url}"
+                >
+                    {{ sideNavItem.title }}
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</div>
