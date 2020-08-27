@@ -44,8 +44,6 @@ export const Room: React.FunctionComponent = () => {
     }
 
     const toggleVideo = () => {
-        // console.log(player);
-
         if (playerPlayState !== PlayerPlayStates.PLAYING) {
             player?.playVideo();
             setPlayerPlayState(PlayerPlayStates.PLAYING);

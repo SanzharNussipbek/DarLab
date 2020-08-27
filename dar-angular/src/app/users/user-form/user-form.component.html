@@ -23,6 +23,7 @@
                 <h3>Business sectors</h3>
                 <div class="form-group inner" *ngFor="let control of bsFormArray.controls">
                     <input type="text" class="form-control" [formControl]="control">
+                    <button type="button" class="bs-btn bs-del-btn" (click)="removeBS(control.value)">Remove</button>
                 </div>
                 <button type="button" class="bs-btn" (click)="addBS()">Add Business Sector</button>
             </div>

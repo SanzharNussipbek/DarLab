@@ -30,7 +30,6 @@ export const Login: React.FunctionComponent = () => {
             <input type="text" placeholder="Username" name="username" className="login-input" onChange={handleChange}/>
             <input type="password" placeholder="Password" name="password" className="login-input" onChange={handleChange}/>
             <Button text={"Submit"} className={"submit-btn"}/>
-            {/* <button type="submit" className="btn submit-btn">Submit</button> */}
         </form>
     );
 }

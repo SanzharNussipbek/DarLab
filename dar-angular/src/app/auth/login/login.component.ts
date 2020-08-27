@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
         })
       )
       .subscribe(res => {
-        console.log('AUTH', res);
         this.authService.setLoggedIn(res);
         this.router.navigate(['/']);
       });

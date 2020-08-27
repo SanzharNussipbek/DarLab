@@ -45,8 +45,7 @@ export class RegisterComponent implements OnInit {
         })
       )
       .subscribe(res=>{
-        console.log(res)
-        alert("Registered successfully!")
+        alert("Registered successfully!");
         this.router.navigate(['/auth/login']);
       });
   }

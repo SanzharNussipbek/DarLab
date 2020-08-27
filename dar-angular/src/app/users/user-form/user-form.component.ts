@@ -156,8 +156,13 @@ export class UserFormComponent implements OnInit {
     formArray.push(new FormControl(''));
   }
 
-  saveUser() {
+  removeBS(bsName: string) {
+    const formArray = this.form.get('company').get('bs') as FormArray;
+    let bsArray = formArray.value as Array<string>;
+    formArray.removeAt(bsArray.indexOf(bsName));
+  }
 
+  saveUser() {
     const newAddress: Address = {
       street: this.form.value.address.street,
       suite: this.form.value.address.suite,
@@ -168,10 +173,10 @@ export class UserFormComponent implements OnInit {
     const newCompany: Company = {
       name: this.form.value.company.name,
       catchPhrase: this.form.value.company.catchPhrase,
-      bs: this.form.value.company.bs,
+      bs: this.form.value.company.bs.filter((val: string) => val.trim() != "").join(),
     }
 
-    const newUser: User = {
+    const newUserValues: User = {
       id: this.user.id,
       name: this.form.value.commonInfo.name,
       email: this.form.value.commonInfo.email,
@@ -181,6 +186,8 @@ export class UserFormComponent implements OnInit {
       address: newAddress,
       company: newCompany
     };
+
+    const newUser = JSON.stringify(newUserValues);
 
     console.log(newUser);
   }
